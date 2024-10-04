@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
             return res.status(401).json({ message: "Authorization token missing" }); // Return a meaningful error if token is missing
         }
 
-        const decodeData = jwt.verify(token, process.env.JWT_SECRET);
+        const decodeData = jwt.verify(token, 'test');
         req.userId = decodeData.id;
 
         next();
